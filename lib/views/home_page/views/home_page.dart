@@ -34,6 +34,12 @@ class _HomePageState extends State<HomePage> {
             Icon(Icons.music_note),
           ],
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/music_player');
+          },
+          child: Icon(Icons.music_note_rounded),
+        ),
       ),
     );
   }
