@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           value: MusicProvider(),
         ),
         ChangeNotifierProvider.value(
-          value: MusicHomeProvider(),
+          value: VideoHomeProvider(),
         ),
       ],
       child: MaterialApp(
