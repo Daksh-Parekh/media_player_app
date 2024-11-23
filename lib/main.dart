@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:media_player_app/views/home_page/provider/music_home_provider.dart';
 import 'package:media_player_app/views/home_page/views/home_page.dart';
 import 'package:media_player_app/views/music_player_page/provider/music_player_provider.dart';
 import 'package:media_player_app/views/music_player_page/views/music_player_page.dart';
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(
           value: MusicProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: MusicHomeProvider(),
         ),
       ],
       child: MaterialApp(
