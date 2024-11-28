@@ -33,16 +33,14 @@ class _MusicPlayerState extends State<MusicPlayer> {
       ),
       body: Center(
         child: Stack(
-          // fit: StackFit.expand,
           alignment: Alignment(0, 0),
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.network(
               '${model.image}',
               height: size.height,
               width: size.width,
               fit: BoxFit.cover,
-              color: Colors.black.withOpacity(0.74),
+              color: Colors.black.withOpacity(0.8),
               colorBlendMode: BlendMode.darken,
             ),
             Column(
@@ -60,30 +58,36 @@ class _MusicPlayerState extends State<MusicPlayer> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "${model.title}",
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: 26,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      125.w,
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.share,
-                          size: 30,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.share,
+                              size: 25,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.favorite_border_rounded,
+                              size: 25,
+                            ),
+                          )
+                        ],
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.favorite_border_rounded,
-                          size: 30,
-                        ),
-                      )
                     ],
                   ),
                 ),
@@ -116,7 +120,10 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       onPressed: () {
                         mRead.backMusic();
                       },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded),
+                      icon: Icon(
+                        Icons.arrow_left_rounded,
+                        size: 100,
+                      ),
                     ),
                     IconButton.filledTonal(
                       onPressed: () {
@@ -124,14 +131,24 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         // mRead.playOrPause();
                       },
                       icon: mWatch.isPlay
-                          ? Icon(Icons.pause_circle_filled_rounded)
-                          : Icon(Icons.play_circle_fill_rounded),
+                          ? Icon(
+                              Icons.pause_circle_filled_rounded,
+                              size: 30,
+                            )
+                          : Icon(
+                              Icons.play_circle_fill_rounded,
+                              size: 30,
+                            ),
                     ),
                     IconButton(
-                        onPressed: () {
-                          mRead.forwardMusic();
-                        },
-                        icon: Icon(Icons.arrow_forward_ios_rounded)),
+                      onPressed: () {
+                        mRead.forwardMusic();
+                      },
+                      icon: Icon(
+                        Icons.arrow_right_rounded,
+                        size: 100,
+                      ),
+                    ),
                   ],
                 ),
               ],

@@ -54,51 +54,50 @@ class _HomePageState extends State<HomePage> {
         body: TabBarView(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // CarouselSlider.builder(
-                  //   itemCount: hWatch.allMusics.length,
-                  //   itemBuilder: (context, index, realIndex) {
-                  //     return Container(
-                  //       margin: EdgeInsets.all(10),
-                  //       decoration: BoxDecoration(
-                  //         // color: Colors.amber,
-                  //         borderRadius: BorderRadius.circular(10),
-                  //         image: DecorationImage(
-                  //           image:
-                  //               NetworkImage('${hRead.allMusics[index].image}'),
-                  //           fit: BoxFit.cover,
-                  //         ),
-                  //       ),
-                  //     );
-                  //   },
-                  //   options: CarouselOptions(
-                  //     autoPlay: true,
-                  //     viewportFraction: 0.7,
-                  //     enlargeCenterPage: true,
-                  //     enableInfiniteScroll: true,
-                  //   ),
-                  // ),
-                  // 10.h,
-                  ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: hRead.allMusics.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        onTap: () {
-                          hWatch.setIndex(index);
-                          Navigator.pushNamed(context, '/music_player',
-                              arguments: hRead.allMusics[index]);
-                        },
-                        minTileHeight: 80,
-                        leading:
-                            Image.network('${hRead.allMusics[index].image}'),
-                        title: Text("${hRead.allMusics[index].title}"),
-                      );
-                    },
+                  Text(
+                    "Trending Songs",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  Expanded(
+                    child: ListView.builder(
+                      // scrollDirection: Axis.horizontal,
+                      itemCount: hWatch.allMusics.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          onTap: () {
+                            hWatch.setIndex(index);
+                            Navigator.pushNamed(context, '/music_player',
+                                arguments: hRead.allMusics[index]);
+                          },
+                          minTileHeight: 120,
+                          leading: Image.network(
+                            '${hWatch.allMusics[index].image}',
+                          ),
+                          title: Text(
+                            "${hWatch.allMusics[index].title}",
+                            style: TextStyle(
+                              fontSize: 19,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          subtitle: Text(
+                            "~ ${hWatch.allMusics[index].singer}",
+                            style: TextStyle(color: Colors.grey),
+                            textAlign: TextAlign.end,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  // 250.h,
                 ],
               ),
             ),

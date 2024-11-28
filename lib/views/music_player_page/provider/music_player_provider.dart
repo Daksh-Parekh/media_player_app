@@ -32,30 +32,35 @@ class MusicProvider with ChangeNotifier {
 
   List<MusicModel> allMusics = [
     MusicModel(
-      title: 'Singham',
+      title: 'Singham Title Track',
       image:
           'https://pagalfree.com/images/128Singham%20Again%20Title%20Track%20-%20Singham%20Again%20128%20Kbps.jpg',
       audio:
           "https://pagalfree.com/musics/128-Singham%20Again%20Title%20Track%20-%20Singham%20Again%20128%20Kbps.mp3",
+      singer: 'Vishal Dadlani',
     ),
     MusicModel(
-        title: 'Bhool Bulaiyaa 3',
-        image:
-            'https://pagalfree.com/images/128Bhool%20Bhulaiyaa%203%20-%20Title%20Track%20(Feat.%20Pitbull)%20-%20Bhool%20Bhulaiyaa%203%20128%20Kbps.jpg',
-        audio:
-            "https://pagalfree.com/musics/128-Bhool Bhulaiyaa 3 - Title Track (Feat. Pitbull) - Bhool Bhulaiyaa 3 128 Kbps.mp3"),
+      title: 'Bhool Bhulaiyaa 3',
+      image:
+          'https://pagalfree.com/images/128Bhool%20Bhulaiyaa%203%20-%20Title%20Track%20(Feat.%20Pitbull)%20-%20Bhool%20Bhulaiyaa%203%20128%20Kbps.jpg',
+      audio:
+          "https://pagalfree.com/musics/128-Bhool Bhulaiyaa 3 - Title Track (Feat. Pitbull) - Bhool Bhulaiyaa 3 128 Kbps.mp3",
+      singer: 'Mika Singh, Pitbull',
+    ),
     MusicModel(
-      title: 'Pushpa',
+      title: 'Pushpa Pushpa',
       image:
           'https://pagalfree.com/images/128Pushpa%20Pushpa%20-%20Pushpa%202%20The%20Rule%20128%20Kbps.jpg',
       audio:
           "https://pagalfree.com/musics/128-Pushpa Pushpa - Pushpa 2 The Rule 128 Kbps.mp3",
+      singer: 'Devi Sri Prasad',
     ),
     MusicModel(
       title: 'Aayi Nai',
       image:
           'https://pagalfree.com/images/128Aayi%20Nai%20-%20Stree%202%20128%20Kbps.jpg',
       audio: "https://pagalfree.com/musics/128-Aayi Nai - Stree 2 128 Kbps.mp3",
+      singer: 'Sachin-Jigar',
     ),
     MusicModel(
       title: 'Aaj Ki Raat',
@@ -63,6 +68,7 @@ class MusicProvider with ChangeNotifier {
           'https://pagalfree.com/images/128Aaj%20Ki%20Raat%20-%20Stree%202%20128%20Kbps.jpg',
       audio:
           "https://pagalfree.com/musics/128-Aaj Ki Raat - Stree 2 128 Kbps.mp3",
+      singer: 'Alka Yagnik, Sonu Nigam',
     ),
     MusicModel(
       title: 'Tu Hai Champion',
@@ -70,6 +76,7 @@ class MusicProvider with ChangeNotifier {
           'https://pagalfree.com/images/128Tu%20Hai%20Champion%20-%20Chandu%20Champion%20128%20Kbps.jpg',
       audio:
           "https://pagalfree.com/musics/128-Tu Hai Champion - Chandu Champion 128 Kbps.mp3",
+      singer: 'Arijit Singh',
     ),
     MusicModel(
       title: 'Tauba Tauba',
@@ -77,6 +84,7 @@ class MusicProvider with ChangeNotifier {
           'https://pagalfree.com/images/128Tauba%20Tauba%20-%20Bad%20Newz%20128%20Kbps.jpg',
       audio:
           "https://pagalfree.com/musics/128-Tauba Tauba - Bad Newz 128 Kbps.mp3",
+      singer: 'Badshah',
     ),
     MusicModel(
       title: 'Kesariya',
@@ -84,6 +92,7 @@ class MusicProvider with ChangeNotifier {
           'https://pagalfree.com/images/128Kesariya%20-%20Brahmastra%20128%20Kbps.jpg',
       audio:
           "https://pagalfree.com/musics/128-Kesariya - Brahmastra 128 Kbps.mp3",
+      singer: 'Arijit Singh',
     ),
     MusicModel(
       title: 'Saath Hum Rahein',
@@ -91,6 +100,7 @@ class MusicProvider with ChangeNotifier {
           'https://pagalfree.com/images/128Saath%20Hum%20Rahein%20-%20Drishyam%202%20128%20Kbps.jpg',
       audio:
           "https://pagalfree.com/musics/128-Saath Hum Rahein - Drishyam 2 128 Kbps.mp30",
+      singer: 'Amit Trivedi',
     ),
     MusicModel(
       title: 'Satyanaas',
@@ -98,6 +108,7 @@ class MusicProvider with ChangeNotifier {
           'https://pagalfree.com/images/128Satyanaas%20-%20Chandu%20Champion%20128%20Kbps.jpg',
       audio:
           "https://pagalfree.com/musics/128-Satyanaas - Chandu Champion 128 Kbps.mp3",
+      singer: 'Yo Yo Honey Singh',
     ),
   ];
 
