@@ -1,4 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:media_player_app/utils/extensions.dart';
 import 'package:media_player_app/views/home_page/provider/music_home_provider.dart';
 import 'package:media_player_app/views/music_player_page/provider/music_player_provider.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     hRead = context.read<MusicProvider>();
     hWatch = context.watch<MusicProvider>();
     hvRead = context.read<VideoHomeProvider>();
-    // hvWatch = context.watch<VideoHomeProvider>();
+    hvWatch = context.watch<VideoHomeProvider>();
 
     Size size = MediaQuery.sizeOf(context);
     return DefaultTabController(
@@ -52,49 +55,61 @@ class _HomePageState extends State<HomePage> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ListView.builder(
-                itemCount: hRead.allMusics.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    onTap: () {
-                      hWatch.setIndex(index);
-                      Navigator.pushNamed(context, '/music_player',
-                          arguments: hRead.allMusics[index]);
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // CarouselSlider.builder(
+                  //   itemCount: hWatch.allMusics.length,
+                  //   itemBuilder: (context, index, realIndex) {
+                  //     return Container(
+                  //       margin: EdgeInsets.all(10),
+                  //       decoration: BoxDecoration(
+                  //         // color: Colors.amber,
+                  //         borderRadius: BorderRadius.circular(10),
+                  //         image: DecorationImage(
+                  //           image:
+                  //               NetworkImage('${hRead.allMusics[index].image}'),
+                  //           fit: BoxFit.cover,
+                  //         ),
+                  //       ),
+                  //     );
+                  //   },
+                  //   options: CarouselOptions(
+                  //     autoPlay: true,
+                  //     viewportFraction: 0.7,
+                  //     enlargeCenterPage: true,
+                  //     enableInfiniteScroll: true,
+                  //   ),
+                  // ),
+                  // 10.h,
+                  ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: hRead.allMusics.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        onTap: () {
+                          hWatch.setIndex(index);
+                          Navigator.pushNamed(context, '/music_player',
+                              arguments: hRead.allMusics[index]);
+                        },
+                        minTileHeight: 80,
+                        leading:
+                            Image.network('${hRead.allMusics[index].image}'),
+                        title: Text("${hRead.allMusics[index].title}"),
+                      );
                     },
-                    minTileHeight: 80,
-                    leading: Image.network('${hRead.allMusics[index].image}'),
-                    title: Text("${hRead.allMusics[index].title}"),
-                  );
-                },
+                  ),
+                ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      hvRead.videoController.play();
-                    },
-                    child: Container(
-                      height: size.height * 0.50,
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.55),
-                            blurRadius: 8,
-                            offset: Offset(4, 6),
-                          ),
-                        ],
-                      ),
-                      child: VideoPlayer(hvRead.videoController),
-                    ),
-                  ),
-                ],
-              ),
+              child: hvWatch.chewieController != null
+                  ? SizedBox(
+                      height: 100,
+                      child: Chewie(controller: hvWatch.chewieController!),
+                    )
+                  : Center(child: CircularProgressIndicator()),
             ),
           ],
         ),

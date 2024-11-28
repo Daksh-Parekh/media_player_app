@@ -56,7 +56,38 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                30.h,
+                20.h,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "${model.title}",
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      125.w,
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.share,
+                          size: 30,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.favorite_border_rounded,
+                          size: 30,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                10.h,
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
